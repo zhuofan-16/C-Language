@@ -46,14 +46,31 @@ void start_up()
 }
 
 
+void deposit_ui()
+{
 
+}
+void withdraw_ui()
+{
 
+}
+void  localtransfer_ui()
+{
 
+}
+void  overseatransfer_ui()
+{
+
+}
+void oversea_spendui()
+{
+
+}
 
 
 void main_ui()
 {
-    int main_choice;
+    int mchoice;
     system("cls");
     printf("*****************************************************\n");
     printf("星辰银行系统\n");
@@ -69,9 +86,31 @@ void main_ui()
 
     printf("*****************************************************\n");
     printf("你的选项:");
-    scanf("%d",&main_choice);
+    scanf("%d",&mchoice);
+    switch (mchoice)
+    {
+        case 1 :
+            deposit_ui();
+            break;
+        case 2 :
+           withdraw_ui();
+           break;
+        case 3 :
+            localtransfer_ui();
+            break;
+        case 4 :
+             overseatransfer_ui();
+             break;
+        case 5 :
+            oversea_spendui();
+            break;
+        default :
+            system("cls");
+            printf("错误选项，请重试");
+            Sleep(3000);
+            main_ui();
 
-
+    }
 }
     void login_ui()
     {
