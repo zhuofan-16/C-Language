@@ -3,6 +3,6 @@
 
 ## -------------------------------------------------------
 
-# This folder saves some notes about c
-# It also save some C language tasks from NEU and my submission :)
+ This folder saves some notes about c
+It also save some C language tasks from NEU and my submission :)
 
