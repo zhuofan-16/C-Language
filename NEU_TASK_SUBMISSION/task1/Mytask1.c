@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
-    int i=0;
+int i=0;
+int N;
         int z;
 struct bankuser
 {
@@ -24,17 +25,17 @@ void current_time()
 
   time ( &rawtime );
   timeinfo = localtime ( &rawtime );
-    printf ( "µ±Ç°Ê±¼äÎª: %s", asctime (timeinfo) );
+    printf ( "å½“å‰æ—¶é—´ä¸º: %s", asctime (timeinfo) );
 }
 void start_up()
 {
 
         system("cls");
     printf("*****************************************************\n");
-    printf("ĞÇ³½ÒøĞĞÏµÍ³\n");
+    printf("æ˜Ÿè¾°é“¶è¡Œç³»ç»Ÿ\n");
     current_time();
-    printf("\nÒòÎªÓĞ»Ú£¬ËùÒÔÅûĞÇ´÷ÔÂ  ÒòÎªÓĞÃÎ£¬ËùÒÔ·Ü²»¹ËÉí");
-    printf("\nÕıÔÚÔØÈëÏµÍ³£¬ÇëÉÔºó...\n");
+    printf("\nå› ä¸ºæœ‰æ‚”ï¼Œæ‰€ä»¥æŠ«æ˜Ÿæˆ´æœˆ  å› ä¸ºæœ‰æ¢¦ï¼Œæ‰€ä»¥å¥‹ä¸é¡¾èº«");
+    printf("\næ­£åœ¨è½½å…¥ç³»ç»Ÿï¼Œè¯·ç¨å...\n");
         printf("*****************************************************\n");
     printf(".......................................................\r");
     for(z=0; z<55; z++)
@@ -73,40 +74,50 @@ void main_ui()
     int mchoice;
     system("cls");
     printf("*****************************************************\n");
-    printf("ĞÇ³½ÒøĞĞÏµÍ³\n");
-    printf("»¶Ó­¹âÁÙ,%s   \n",user[i].real_name);
+    printf("æ˜Ÿè¾°é“¶è¡Œç³»ç»Ÿ\n");
+    printf("æ¬¢è¿å…‰ä¸´,%s   \n",user[i].real_name);
     current_time();
-    printf("ÄúÄ¿Ç°Óà¶îÎª£¤ %d \n",user[i].saving);
-    printf("½ñÌìÄãÏë½øĞĞÊ²Ã´½»Ò×:\n");
-    printf("1.´æ¿î");
-    printf("   2.È¡¿î");
-    printf("   3.¹úÄÚ×ªÕË");
-    printf("\n4.¹úÍâ×ªÕË");
-    printf("   5.¿ªÆôº£ÍâÌá¿î¹¦ÄÜ\n");
+    printf("æ‚¨ç›®å‰ä½™é¢ä¸ºï¿¥ %d \n",user[i].saving);
+    printf("ä»Šå¤©ä½ æƒ³è¿›è¡Œä»€ä¹ˆäº¤æ˜“:\n");
+    printf("1.å­˜æ¬¾");
+    printf("   2.å–æ¬¾");
+    printf("   3.å›½å†…è½¬è´¦");
+    printf("\n4.å›½å¤–è½¬è´¦");
+    printf("   5.å¼€å¯æµ·å¤–ææ¬¾åŠŸèƒ½");
+     printf("   6.é€€å‡ºç™»å½•\n");
 
     printf("*****************************************************\n");
-    printf("ÄãµÄÑ¡Ïî:");
+    printf("ä½ çš„é€‰é¡¹:");
     scanf("%d",&mchoice);
     switch (mchoice)
     {
         case 1 :
+            system("cls");
             deposit_ui();
             break;
         case 2 :
+            system("cls");
            withdraw_ui();
            break;
         case 3 :
+            system("cls");
             localtransfer_ui();
             break;
         case 4 :
+            system("cls");
              overseatransfer_ui();
              break;
         case 5 :
+            system("cls");
             oversea_spendui();
             break;
+        case 6 :
+            system("cls");
+             start_screen();
+             break;
         default :
             system("cls");
-            printf("´íÎóÑ¡Ïî£¬ÇëÖØÊÔ");
+            printf("é”™è¯¯é€‰é¡¹ï¼Œè¯·é‡è¯•");
             Sleep(3000);
             main_ui();
 
@@ -115,15 +126,14 @@ void main_ui()
     void login_ui()
     {
         int i=0;
-        int n=5;
 char user2[50];
 int pin1;
     printf("*****************************************************\n");
-    printf("ÄúºÃ£¬»¶Ó­À´µ½ ĞÇ³½ÒøĞĞµÇÂ¼½çÃæ\n");
+    printf("æ‚¨å¥½ï¼Œæ¬¢è¿æ¥åˆ° æ˜Ÿè¾°é“¶è¡Œç™»å½•ç•Œé¢\n");
     current_time();
-    printf("\nÒòÎªÓĞ»Ú£¬ËùÒÔÅûĞÇ´÷ÔÂ  ÒòÎªÓĞÃÎ£¬ËùÒÔ·Ü²»¹ËÉí\n");
+    printf("\nå› ä¸ºæœ‰æ‚”ï¼Œæ‰€ä»¥æŠ«æ˜Ÿæˆ´æœˆ  å› ä¸ºæœ‰æ¢¦ï¼Œæ‰€ä»¥å¥‹ä¸é¡¾èº«\n");
         printf("*****************************************************\n");
-        printf("ÇëÊäÈëÄãµÄÓÃ»§Ãû:");
+        printf("è¯·è¾“å…¥ä½ çš„ç”¨æˆ·å:");
         scanf("%s",user2);
         for (i=0;(strcmp(user2,user[i].userid)!=0);)
         {
@@ -134,7 +144,7 @@ int pin1;
             if (i==50)
             {
                 system("cls");
-                printf("ÓÃ»§Ãû´íÎó£¬ÇëÖØÊÔ");
+                printf("ç”¨æˆ·åé”™è¯¯ï¼Œè¯·é‡è¯•");
             Sleep(3000);
             system("cls");
                 start_screen();
@@ -142,51 +152,52 @@ int pin1;
             else
                 {
 
-        printf("»¶Ó­¹âÁÙ %s,\nÇëÊäÈëÄúµÄÃÜÂë£º",user[i].real_name);
+        printf("æ¬¢è¿å…‰ä¸´ %s,\nè¯·è¾“å…¥æ‚¨çš„å¯†ç ï¼š",user[i].real_name);
         scanf("%d",&pin1);
-        if (strcmp(pin1,user[i].pin_number)!=0)
+        if (pin1!=user[i].pin_number)
             {
-                printf("ÃÜÂë´íÎó£¬ÇëÖØĞÂµÇÂ¼");
+                printf("å¯†ç é”™è¯¯ï¼Œè¯·é‡æ–°ç™»å½•");
                 Sleep(3000);
+                system("cls");
                 login_ui();
 
-            }else
-                {
+            }
+             if (pin1==user[i].pin_number)
+{
 
-
-                printf("ÃÜÂëÕıÈ·,µÇÂ¼³É¹¦");
+                printf("å¯†ç æ­£ç¡®,ç™»å½•æˆåŠŸ");
                 Sleep(3000);
-
-            main_ui();
+                system("cls");
+                main_ui();
+}
             }
 
-    }
     }
 
 
 void register_screen()
 {
-    i=i+1;
-    printf("ÄúºÃ£¬»¶Ó­À´µ½ ĞÇ³½ÒøĞĞ×¢²áÒ³Ãæ\n");
-    printf("ÇëÊäÈëÄãµÄÃû×Ö:");
+    i=N;
+    printf("æ‚¨å¥½ï¼Œæ¬¢è¿æ¥åˆ° æ˜Ÿè¾°é“¶è¡Œæ³¨å†Œé¡µé¢\n");
+    printf("è¯·è¾“å…¥ä½ çš„åå­—:");
     scanf("%s",user[i].real_name);
     system("cls");
-    printf("ÄãµÄĞÔ±ğÊÇM/F:");
+    printf("ä½ çš„æ€§åˆ«æ˜¯M/F:");
     scanf("%s",user[i].sex);
     system("cls");
-    printf("Ğ»Ğ»£¬ÏÖÔÚÇëÊäÈëÒ»¸öÓÃ»§Ãû:");
+    printf("è°¢è°¢ï¼Œç°åœ¨è¯·è¾“å…¥ä¸€ä¸ªç”¨æˆ·å:");
      scanf("%s",user[i].userid);
      system("cls");
-     printf("ÏÖÔÚÇëÊäÈëÄúµÄÉúÈÕ£¨¸ñÊ½ÎªDDMMYYYY):");
+     printf("ç°åœ¨è¯·è¾“å…¥æ‚¨çš„ç”Ÿæ—¥ï¼ˆæ ¼å¼ä¸ºDDMMYYYY):");
      scanf("%d",&user[i].birthday);
      system("cls");
-     printf("ÏÖÔÚ£¬Çë´´½¨ÄãµÄ6Î»ÊıPIN:");
+     printf("ç°åœ¨ï¼Œè¯·åˆ›å»ºä½ çš„6ä½æ•°PIN:");
      scanf("%d",&user[i].pin_number);
      system("cls");
-     printf("ÇëÔÙÊäÈëÒ»´Î:");
+     printf("è¯·å†è¾“å…¥ä¸€æ¬¡:");
      scanf("%d",&user[i].pin_number_confirm);
      system("cls");
-     if (strcmp(user[i].pin_number,user[i].pin_number_confirm)==0)
+     if (user[i].pin_number==user[i].pin_number_confirm)
      {
          printf(".......................................................\r");
     for(z=0; z<55; z++)
@@ -194,25 +205,26 @@ void register_screen()
         Sleep(30);
         printf(">");
     }
+
     system("cls");
-    printf("´´Ôì³É¹¦£¬»¶Ó­¹âÁÙ\n");
-    printf("¹§Ï²»ñµÃ¿ª»§½±Àø£¤500");
+    printf("åˆ›é€ æˆåŠŸï¼Œæ¬¢è¿å…‰ä¸´\n");
+    printf("æ­å–œè·å¾—å¼€æˆ·å¥–åŠ±ï¿¥500");
     user[i].saving=500;
     Sleep(3000);
     system("cls");
-     login_ui();
+    N=N+1;
+    FILE * rd;
+    rd=fopen("valuei.dat","wb");
+    fwrite (&N,sizeof(int),1,rd);
+    fclose(rd);
+     start_screen();
 
      }     else
      {
          system("cls");
 
-         printf("Á½´ÎÊäÈë²»ÏàÍ¬£¬ÇëÖØĞÂÉèÖÃ\n");
-         printf("ÏÖÔÚ£¬Çë´´½¨ÄãµÄ6Î»ÊıPIN");
-     scanf("%d",&user[i].pin_number);
-     system("cls");
-     printf("ÇëÔÙÊäÈëÒ»´Î");
-     scanf("%d",&user[i].pin_number_confirm);
-
+         printf("ä¸¤æ¬¡è¾“å…¥ä¸ç›¸åŒï¼Œè¯·é‡æ–°è®¾ç½®\n");
+        register_screen();
 
      }
 
@@ -222,15 +234,15 @@ void start_screen()
 {
     int option;
         printf("*****************************************************\n");
-    printf("ĞÇ³½ÒøĞĞÏµÍ³\n");
+    printf("æ˜Ÿè¾°é“¶è¡Œç³»ç»Ÿ\n");
     current_time();
-    printf("\nÒòÎªÓĞ»Ú£¬ËùÒÔÅûĞÇ´÷ÔÂ  ÒòÎªÓĞÃÎ£¬ËùÒÔ·Ü²»¹ËÉí\n");
+    printf("\nå› ä¸ºæœ‰æ‚”ï¼Œæ‰€ä»¥æŠ«æ˜Ÿæˆ´æœˆ  å› ä¸ºæœ‰æ¢¦ï¼Œæ‰€ä»¥å¥‹ä¸é¡¾èº«\n");
      printf("*****************************************************\n\n");
-    printf("\n1.ÄúÊÇÎÒÃÇµÄÏÖÓĞ¿Í»§£¬µÇÂ¼ÕËºÅ");
-    printf("             2.ÄúÊÇĞÂ¿Í»§£¬×¢²áÕËºÅ\n");
-    printf("3.½øÈëÄÚ²¿ºóÌ¨");
-    printf("                             4.ÍË³öÒøĞĞÓ¦ÓÃ\n");
-    printf("ÄãµÄÑ¡Ïî:");
+    printf("\n1.æ‚¨æ˜¯æˆ‘ä»¬çš„ç°æœ‰å®¢æˆ·ï¼Œç™»å½•è´¦å·");
+    printf("             2.æ‚¨æ˜¯æ–°å®¢æˆ·ï¼Œæ³¨å†Œè´¦å·\n");
+    printf("3.è¿›å…¥å†…éƒ¨åå°");
+    printf("                             4.é€€å‡ºé“¶è¡Œåº”ç”¨\n");
+    printf("ä½ çš„é€‰é¡¹:");
     scanf("%d",&option);
     if (option==1)
     {
@@ -251,10 +263,21 @@ void start_screen()
 }
 
 
-
 int main()
 {
+    int a;
+
         system("color f0");
+ FILE * value;
+        if ((value=fopen("valuei.dat","rb"))==NULL)
+        {
+    int i=0;
+    int N=0;
+        }
+        else
+            fread(&N,sizeof(int),1,value);
+            printf("%d",N);
+            Sleep(3000);
      start_up();
     start_screen();
     return 0;
