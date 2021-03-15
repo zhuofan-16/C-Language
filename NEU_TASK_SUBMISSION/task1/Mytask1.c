@@ -128,6 +128,13 @@ void main_ui()
         int i=0;
 char user2[50];
 int pin1;
+FILE * userinfo;
+userinfo=fopen("encryptdata.dat","rb");
+for (i=0;i<N;i++)
+{
+    fread (&user[i],sizeof(struct bankuser),1,userinfo);
+}
+
     printf("*****************************************************\n");
     printf("您好，欢迎来到 星辰银行登录界面\n");
     current_time();
@@ -217,6 +224,13 @@ void register_screen()
     rd=fopen("valuei.dat","wb");
     fwrite (&N,sizeof(int),1,rd);
     fclose(rd);
+
+    FILE * registerinfo;
+    registerinfo=fopen ("encryptdata.dat","wb");
+    for (i=0;i<N;i++)
+        fwrite (&user[i],sizeof (struct bankuser),1,registerinfo);
+
+
      start_screen();
 
      }     else
