@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
-int i=0;
 int N;
+int i;
         int z;
+
 struct bankuser
 {
     char userid[50];
@@ -14,7 +15,7 @@ struct bankuser
     int pin_number;
     int pin_number_confirm;
     char salutory;
-    int saving;
+    float saving;
 
 }user[50]={};
 
@@ -25,17 +26,25 @@ void current_time()
 
   time ( &rawtime );
   timeinfo = localtime ( &rawtime );
-    printf ( "当前时间为: %s", asctime (timeinfo) );
+    printf ( "Current Time: %s", asctime (timeinfo) );
 }
 void start_up()
 {
+    FILE * userinfo;
+userinfo=fopen("encryptdata.dat","rb");
+for (i=0;i<N;i++)
+{
+    fread (&user[i],sizeof(struct bankuser),1,userinfo);
+}
+
+fclose(userinfo);
 
         system("cls");
     printf("*****************************************************\n");
-    printf("星辰银行系统\n");
+    printf("XC Banking System\n");
     current_time();
-    printf("\n因为有悔，所以披星戴月  因为有梦，所以奋不顾身");
-    printf("\n正在载入系统，请稍后...\n");
+    printf("\n Neighbours First, Bankers Second");
+    printf("\n System loading,please wait...\n");
         printf("*****************************************************\n");
     printf(".......................................................\r");
     for(z=0; z<55; z++)
@@ -49,6 +58,23 @@ void start_up()
 
 void deposit_ui()
 {
+    float temp_add_amount;
+     system("cls");
+    printf("*****************************************************\n");
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
+    current_time();
+    printf("Your current balance is $ %.2f \n",user[i].saving);
+    printf("Deposit Amount:\n");
+
+    printf("*****************************************************\n");
+    printf(":\n");
+    scanf("%f",&temp_add_amount);
+    user[i].saving=user[i].saving+temp_add_amount;
+    printf("Deposit Successful！Your current balance is $ %.2f \n",user[i].saving);
+    Sleep(3000);
+    main_ui();
+
 
 }
 void withdraw_ui()
@@ -74,20 +100,20 @@ void main_ui()
     int mchoice;
     system("cls");
     printf("*****************************************************\n");
-    printf("星辰银行系统\n");
-    printf("欢迎光临,%s   \n",user[i].real_name);
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
     current_time();
-    printf("您目前余额为￥ %d \n",user[i].saving);
-    printf("今天你想进行什么交易:\n");
-    printf("1.存款");
-    printf("   2.取款");
-    printf("   3.国内转账");
-    printf("\n4.国外转账");
-    printf("   5.开启海外提款功能");
-     printf("   6.退出登录\n");
+    printf("Your current balance is￥ %.2f \n",user[i].saving);
+    printf("What transaction do you want to do today:\n");
+    printf("1.Deposit");
+    printf("   2.Withdraw");
+    printf("   3.Local Transfer");
+    printf("\n4.Overseas Transfer");
+    printf("   5.Enable Overseas Withdraw Function");
+     printf("   6.Logout\n");
 
     printf("*****************************************************\n");
-    printf("你的选项:");
+    printf("Your Choice:");
     scanf("%d",&mchoice);
     switch (mchoice)
     {
@@ -117,7 +143,7 @@ void main_ui()
              break;
         default :
             system("cls");
-            printf("错误选项，请重试");
+            printf("Invalid option，please retry");
             Sleep(3000);
             main_ui();
 
@@ -126,21 +152,15 @@ void main_ui()
     void login_ui()
     {
         int i=0;
-char user2[50];
-int pin1;
-FILE * userinfo;
-userinfo=fopen("encryptdata.dat","rb");
-for (i=0;i<N;i++)
-{
-    fread (&user[i],sizeof(struct bankuser),1,userinfo);
-}
 
+int pin1;
+char user2[50];
     printf("*****************************************************\n");
-    printf("您好，欢迎来到 星辰银行登录界面\n");
+    printf("Hi，Welcome to XC Banking System Login Page\n");
     current_time();
-    printf("\n因为有悔，所以披星戴月  因为有梦，所以奋不顾身\n");
+    printf("\n Neighbours First, Bankers Second\n");
         printf("*****************************************************\n");
-        printf("请输入你的用户名:");
+        printf("Enter your username:");
         scanf("%s",user2);
         for (i=0;(strcmp(user2,user[i].userid)!=0);)
         {
@@ -151,7 +171,7 @@ for (i=0;i<N;i++)
             if (i==50)
             {
                 system("cls");
-                printf("用户名错误，请重试");
+                printf("invalid username，please retry");
             Sleep(3000);
             system("cls");
                 start_screen();
@@ -159,11 +179,11 @@ for (i=0;i<N;i++)
             else
                 {
 
-        printf("欢迎光临 %s,\n请输入您的密码：",user[i].real_name);
+        printf("Welcome %s,\n please enter your password：",user[i].real_name);
         scanf("%d",&pin1);
         if (pin1!=user[i].pin_number)
             {
-                printf("密码错误，请重新登录");
+                printf("Invalid password");
                 Sleep(3000);
                 system("cls");
                 login_ui();
@@ -172,7 +192,7 @@ for (i=0;i<N;i++)
              if (pin1==user[i].pin_number)
 {
 
-                printf("密码正确,登录成功");
+                printf("Correct password,login successful");
                 Sleep(3000);
                 system("cls");
                 main_ui();
@@ -185,23 +205,23 @@ for (i=0;i<N;i++)
 void register_screen()
 {
     i=N;
-    printf("您好，欢迎来到 星辰银行注册页面\n");
-    printf("请输入你的名字:");
+    printf("Welcome to XC Banking System Registration Page\n");
+    printf("Please enter your name:");
     scanf("%s",user[i].real_name);
     system("cls");
-    printf("你的性别是M/F:");
+    printf("Your Sex M/F:");
     scanf("%s",user[i].sex);
     system("cls");
-    printf("谢谢，现在请输入一个用户名:");
+    printf("Thanks,input an username:");
      scanf("%s",user[i].userid);
      system("cls");
-     printf("现在请输入您的生日（格式为DDMMYYYY):");
+     printf("Enter your birthday（Format:DDMMYYYY):");
      scanf("%d",&user[i].birthday);
      system("cls");
-     printf("现在，请创建你的6位数PIN:");
+     printf("Now,enter your 6 digit PIN:");
      scanf("%d",&user[i].pin_number);
      system("cls");
-     printf("请再输入一次:");
+     printf("Enter your PIN again:");
      scanf("%d",&user[i].pin_number_confirm);
      system("cls");
      if (user[i].pin_number==user[i].pin_number_confirm)
@@ -214,22 +234,10 @@ void register_screen()
     }
 
     system("cls");
-    printf("创造成功，欢迎光临\n");
-    printf("恭喜获得开户奖励￥500");
-    user[i].saving=500;
+    printf("Create successful，Welcome\n");
     Sleep(3000);
     system("cls");
     N=N+1;
-    FILE * rd;
-    rd=fopen("valuei.dat","wb");
-    fwrite (&N,sizeof(int),1,rd);
-    fclose(rd);
-
-    FILE * registerinfo;
-    registerinfo=fopen ("encryptdata.dat","wb");
-    for (i=0;i<N;i++)
-        fwrite (&user[i],sizeof (struct bankuser),1,registerinfo);
-
 
      start_screen();
 
@@ -237,7 +245,7 @@ void register_screen()
      {
          system("cls");
 
-         printf("两次输入不相同，请重新设置\n");
+         printf("Both attempt does not match,please retry\n");
         register_screen();
 
      }
@@ -248,15 +256,15 @@ void start_screen()
 {
     int option;
         printf("*****************************************************\n");
-    printf("星辰银行系统\n");
+    printf("XC Banking System\n");
     current_time();
-    printf("\n因为有悔，所以披星戴月  因为有梦，所以奋不顾身\n");
+    printf("\nNeighbours First, Bankers Second\n");
      printf("*****************************************************\n\n");
-    printf("\n1.您是我们的现有客户，登录账号");
-    printf("             2.您是新客户，注册账号\n");
-    printf("3.进入内部后台");
-    printf("                             4.退出银行应用\n");
-    printf("你的选项:");
+    printf("\n1.Login");
+    printf("                    2.Register\n");
+    printf("3.Enter admin background");
+    printf("   4.Exit\n");
+    printf("Your choice:");
     scanf("%d",&option);
     if (option==1)
     {
@@ -272,10 +280,27 @@ void start_screen()
     }
          if (option==4)
     {
-        exit(0);
+        exitapp();
+
     }
 }
 
+void exitapp()
+{
+        FILE * rd;
+    rd=fopen("valuei.dat","wb");
+    fwrite (&N,sizeof(int),1,rd);
+    fclose(rd);
+     FILE * registerinfo;
+    registerinfo=fopen ("encryptdata.dat","wb");
+    for (i=0;i<N;i++)
+        fwrite (&user[i],sizeof (struct bankuser),1,registerinfo);
+        fclose( registerinfo);
+        exit(0);
+
+
+
+}
 
 int main()
 {
@@ -296,3 +321,4 @@ int main()
     start_screen();
     return 0;
 }
+
