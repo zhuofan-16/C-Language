@@ -103,7 +103,7 @@ void main_ui()
     printf("XC Banking System\n");
     printf("Welcome,%s   \n",user[i].real_name);
     current_time();
-    printf("Your current balance is￥ %.2f \n",user[i].saving);
+    printf("Your current balance is $ %.2f \n",user[i].saving);
     printf("What transaction do you want to do today:\n");
     printf("1.Deposit");
     printf("   2.Withdraw");
@@ -151,7 +151,6 @@ void main_ui()
 }
     void login_ui()
     {
-        int i=0;
 
 int pin1;
 char user2[50];
@@ -321,4 +320,3 @@ int main()
     start_screen();
     return 0;
 }
-
