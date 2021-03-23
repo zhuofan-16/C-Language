@@ -16,6 +16,7 @@ struct bankuser
     int pin_number_confirm;
     char salutory;
     float saving;
+    char overseaspend[5];
 
 }user[50]={};
 
@@ -68,10 +69,10 @@ void deposit_ui()
     printf("Deposit Amount:\n");
 
     printf("*****************************************************\n");
-    printf(":\n");
+    printf(":");
     scanf("%f",&temp_add_amount);
     user[i].saving=user[i].saving+temp_add_amount;
-    printf("Deposit SuccessfulÔºÅYour current balance is $ %.2f \n",user[i].saving);
+    printf("\nDeposit Successful£°Your current balance is $ %.2f \n",user[i].saving);
     Sleep(3000);
     main_ui();
 
@@ -79,18 +80,193 @@ void deposit_ui()
 }
 void withdraw_ui()
 {
+    float temp_sub_amount;
+     system("cls");
+    printf("*****************************************************\n");
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
+    current_time();
+    printf("Your current balance is $ %.2f \n",user[i].saving);
+    printf("Withdraw Amount:\n");
+
+    printf("*****************************************************\n");
+    printf(":");
+    scanf("%f",&temp_sub_amount);
+    user[i].saving=user[i].saving-temp_sub_amount;
+    printf("\nWithdraw Successful£°Your current balance is $ %.2f \n",user[i].saving);
+    Sleep(3000);
+    main_ui();
+
 
 }
 void  localtransfer_ui()
 {
+    int x;
+    char tempx[50];
+    float temp_sub_amount;
+     system("cls");
+    printf("*****************************************************\n");
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
+    current_time();
+    printf("Your current balance is $ %.2f \n",user[i].saving);
+    printf("Transfer Account UserID:\n");
+
+    printf("*****************************************************\n");
+    printf(":");
+    scanf("%s",tempx);
+        for (x=0;(strcmp(tempx,user[x].userid)!=0);)
+        {
+            x++;
+            if (x==50)
+                break;
+        }
+            if (x==50)
+            {
+                system("cls");
+                printf("Recipient account not found ");
+            Sleep(3000);
+            system("cls");
+                main_ui();
+            }
+            else
+                {
+                    printf("Amount to transfer:");
+                    scanf("%f",& temp_sub_amount);
+                    user[i].saving= user[i].saving-temp_sub_amount;
+                    user[x].saving=user[x].saving+temp_sub_amount;
+                    printf("\n Transaction is successfully");
+                    Sleep(3000);
+                    main_ui();
+                }
 
 }
-void  overseatransfer_ui()
+void  userinfo_ui()
 {
+    int j;
+     system("cls");
+    printf("*****************************************************\n");
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
+    current_time();
+    printf("Your name is %s   \n",user[i].real_name);
+    printf("Your UserID is %s  \n",user[i].userid);
+    printf("Your Birthday is %d  \n",user[i].birthday);
+    printf("Your current balance is $ %.2f \n",user[i].saving);
+    printf("the overseas ATM cash withdrawal function is currently :%s\n",user[i].overseaspend);
+    printf("What do you want to do today?\n");
+    printf("1.Update UserID");
+    printf("           2.Update your name");
+    printf("                  3.Update your password\n");
 
+
+    printf("*****************************************************\n");
+    printf(":");
+    scanf("%d",&j);
+     switch (j)
+     {
+
+     case 2 :
+         {
+
+         char tempname[100];
+         char cho[2];
+         char x[2]="Y";
+         system("cls");
+        printf("Enter your new Name:");
+        scanf("%s",tempname);
+        printf("To confirm,this is your new name %s Y/N:",tempname);
+        scanf("%s",cho);
+        if  (strcmp(cho,x)==0)
+        {
+
+            strcpy(user[i].real_name,tempname);
+            printf("Changed Successfully");
+            Sleep(3000);
+            main_ui();
+        }
+        else
+        {
+             printf("Change unsuccessful");
+            userinfo_ui();
+
+        }
+        break;
+         }
+     case 1 :
+         {
+
+                  char tempid[100];
+         char cho[2];
+         char x[2]="Y";
+         system("cls");
+        printf("Enter your new ID:");
+        scanf("%s",tempid);
+        printf("To confirm,this is your new UserID %s Y/N:",tempid);
+        scanf("%s",cho);
+        if  (strcmp(cho,x)==0)
+        {
+
+            strcpy(user[i].userid,tempid);
+            printf("Changed Successfully");
+            Sleep(3000);
+            main_ui();
+        }
+        else
+
+        {
+            printf("Change unsuccessful");
+            userinfo_ui();
+
+        }
+        break;
+         }
+
+     case 3 :
+         {
+
+         int tmppass;
+            system("cls");
+         printf("Enter your current password");
+         scanf("%d",tmppass);
+         if (tmppass=user[i].pin_number)
+         {
+             printf("Enter your new password");
+             scanf("%d",user[i].pin_number);
+             printf("Changed Successfully");
+             Sleep(3000);
+             main_ui();
+
+         }
+         else
+         {
+             system("cls");
+             printf("Error!Wrong Password!");
+             userinfo_ui();
+         }
+         break;
+
+
+
+     }
+
+
+}
 }
 void oversea_spendui()
 {
+    system("cls");
+    printf("*****************************************************\n");
+    printf("XC Banking System\n");
+    printf("Welcome,%s   \n",user[i].real_name);
+    printf("the overseas ATM cash withdrawal function is currently :%s\n",user[i].overseaspend);
+    printf("Turn ON/OFF?\n" );
+
+    printf("*****************************************************\n");
+    printf(":");
+    scanf("%s",user[i].overseaspend);
+    printf("\nTurn %s successfully",user[i].overseaspend);
+    main_ui();
 
 }
 
@@ -108,8 +284,8 @@ void main_ui()
     printf("1.Deposit");
     printf("   2.Withdraw");
     printf("   3.Local Transfer");
-    printf("\n4.Overseas Transfer");
-    printf("   5.Enable Overseas Withdraw Function");
+    printf("\n4.Update My Particular");
+    printf("   5.Enable Overseas Cash Withdraw Function");
      printf("   6.Logout\n");
 
     printf("*****************************************************\n");
@@ -131,7 +307,7 @@ void main_ui()
             break;
         case 4 :
             system("cls");
-             overseatransfer_ui();
+             userinfo_ui();
              break;
         case 5 :
             system("cls");
@@ -143,7 +319,7 @@ void main_ui()
              break;
         default :
             system("cls");
-            printf("Invalid optionÔºåplease retry");
+            printf("Invalid option£¨please retry");
             Sleep(3000);
             main_ui();
 
@@ -155,7 +331,7 @@ void main_ui()
 int pin1;
 char user2[50];
     printf("*****************************************************\n");
-    printf("HiÔºåWelcome to XC Banking System Login Page\n");
+    printf("Hi£¨Welcome to XC Banking System Login Page\n");
     current_time();
     printf("\n Neighbours First, Bankers Second\n");
         printf("*****************************************************\n");
@@ -170,7 +346,7 @@ char user2[50];
             if (i==50)
             {
                 system("cls");
-                printf("invalid usernameÔºåplease retry");
+                printf("invalid username£¨please retry");
             Sleep(3000);
             system("cls");
                 start_screen();
@@ -178,7 +354,7 @@ char user2[50];
             else
                 {
 
-        printf("Welcome %s,\n please enter your passwordÔºö",user[i].real_name);
+        printf("Welcome %s,\n please enter your password£∫",user[i].real_name);
         scanf("%d",&pin1);
         if (pin1!=user[i].pin_number)
             {
@@ -204,9 +380,10 @@ char user2[50];
 void register_screen()
 {
     i=N;
+    char tmp[5]="OFF";
     printf("Welcome to XC Banking System Registration Page\n");
     printf("Please enter your name:");
-    scanf("%s",user[i].real_name);
+     scanf("%s",user[i].real_name);
     system("cls");
     printf("Your Sex M/F:");
     scanf("%s",user[i].sex);
@@ -214,7 +391,7 @@ void register_screen()
     printf("Thanks,input an username:");
      scanf("%s",user[i].userid);
      system("cls");
-     printf("Enter your birthdayÔºàFormat:DDMMYYYY):");
+     printf("Enter your birthday£®Format:DDMMYYYY):");
      scanf("%d",&user[i].birthday);
      system("cls");
      printf("Now,enter your 6 digit PIN:");
@@ -233,10 +410,12 @@ void register_screen()
     }
 
     system("cls");
-    printf("Create successfulÔºåWelcome\n");
+    printf("Create successful£¨Welcome\n");
     Sleep(3000);
     system("cls");
+    strcpy(user[i].overseaspend,tmp);
     N=N+1;
+
 
      start_screen();
 
