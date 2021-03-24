@@ -9,8 +9,9 @@ struct User   //定义用户群信息
    int Class;
    int Pin;
    int Pin_confirm;
-   char ic[50];
-}user[500]={};
+   char tele[5000];
+   int balance;
+}User[500]={};
 
 
 
@@ -22,8 +23,8 @@ int main()  //Main
  FILE * value;              //开始读取人数
         if ((value=fopen("valuei.dat","rb"))==NULL)
         {
-    int i=0;
-    int N=0;
+    int i=1;
+    int N=1;
         }
         else
             fread(&N,sizeof(int),1,value);
@@ -43,7 +44,7 @@ void start_up()  //开始页面
 userinfo=fopen("encryptdata.dat","rb");
 for (i=0;i<N;i++)
 {
-    fread (&user[i],sizeof(struct User),1,userinfo);
+    fread (&User[i],sizeof(struct User),1,userinfo);
 }
 
 fclose(userinfo);
@@ -119,6 +120,9 @@ void start_screen()
     case 7:
         exitapp();
         break;
+    case 8 :
+        userlist();
+        break;
     default:
         printf("输入错误，请重试！");
         start_screen();
@@ -129,11 +133,298 @@ void start_screen()
 }
 void login()
 {
+    int tempid;
+    int temppw;
+     system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                请输入您的学号:                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&tempid);
+    for (i=0;tempid!=User[i].StudentID;)
+        {
+            i++;
+            if (i>N)
+                break;
+        }
+        if (i>N)
+        {
+                 system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||         没有找到相关用户，您注册了吗？            ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+
+
+        }
+        else
+        {
+                            system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                  请输入您的密码                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+        printf(":");
+    scanf("%d",&temppw);
+
+
+        }
+        if (temppw!=User[i].Pin)
+        {
+                             system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                     密码错误                      ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+
+        }
+        else
+        {
+     system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                    登录成功                       ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    user_interface();
+
+        }
+
+
 
 }
 
 void registration()
 {
+    i=N;
+
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                请输入您的学号:                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].StudentID);
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||              请输入您的名字:                      ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%s",User[i].Full_name);
+        system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||              请输入您的班级:                      ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].Class);
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||            请输入您的电话号码:                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%s",User[i].tele);
+     system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||            请创建一个六位数密码:                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].Pin);
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                 请再输入一遍:                     ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].Pin_confirm);
+    if (User[i].Pin!=User[i].Pin_confirm)
+    {
+            system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||          两次密码不相同，请重新注册               ||\n");
+    printf("\t||                 即将返回主页面！                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+
+
+    }
+    else
+    {
+             system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 注册页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                   创建成功                        ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+        N=N+1;
+        Sleep(3000);
+        start_screen();
+    }
+
 
 }
 void venue_avaliablity()
@@ -152,11 +443,66 @@ void forgot_password()
 
 void about()
 {
+    int backmenu;
+        system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||                                                   ||\n");
+    printf("\t|| 项目名称：运动场馆预定管理系统                    ||\n");
+    printf("\t|| 本项目作者：陈卓凡| 2100746                       ||\n");
+    printf("\t|| 项目版本：V1.01                                   ||\n");
+    printf("\t|| 本项目语言：C语言                                 ||\n");
+    printf("\t|| 项目特色：运动场地管理，用户信息管理，租用管理    ||\n");
+    printf("\t|| 使用本程序需要名字，班级，身份证。开始时需要选择2 ||\n");
+    printf("\t|| 来注册一个账号，然后使用（信息将一直被储存）      ||\n");
+    printf("\t||                 <1> 返回主页面                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n");
+    printf("\n:");
+    scanf("%d",&backmenu);
+    start_screen();
+
+}
+
+void userlist()
+{
+    system("cls");
+     int backmenu;
+    printf("\t==================================================================================================\n");
+    nametitle();
+    int j=0;
+    for (j=0;j<N;j++)
+    {
+    printf("\t     %d     %d  %s       %d         %s               %d        \n",j,User[j].StudentID,User[j].Full_name,User[j].Class,User[j].tele,User[j].Pin);
+
+    }
+
+    printf("\t||                                    <1> 返回主页面                                             ||\n");
+    printf("\t==================================================================================================\n");
+    printf("\n\n");
+    printf("\n:");
+    scanf("%d",&backmenu);
+    start_screen();
+
+
+
+}
+
+void nametitle()
+{
+    printf("\t|| 选项     学号     名字      班级        电话号码                     密码                   || \n");
 
 }
 
 
+user_interface()
+{
 
+}
 
 
 
@@ -177,8 +523,9 @@ void exitapp()
      FILE * registerinfo;
     registerinfo=fopen ("encryptdata.dat","wb");
     for (i=0;i<N;i++)
-        fwrite (&user[i],sizeof (struct User),1,registerinfo);
+        fwrite (&User[i],sizeof (struct User),1,registerinfo);
         fclose( registerinfo);
+
         exit(0);
 
 }
