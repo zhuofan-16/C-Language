@@ -13,10 +13,53 @@ struct User   //定义用户群信息
    int balance;
 }User[500]={};
 
+struct BadmintonCourtA
+{
+
+};
+
+struct TableTennisCourtB
+{
+
+};
+struct BasketballCourtC
+{
+
+};
+
+struct Cost
+{
+    float slot1;
+    float slot2;
+    float slot3;
+    float slot4;
+    float slot5;
+    float slot6;
+    float slot7;
+    float slot8;
+    float slot9;
+    float slot10;
+    float slot11;
+    float slot12;
+}Cost;
 
 
 int main()  //Main
 {
+        Cost.slot1=36.00;
+    Cost.slot2=38.00;
+    Cost.slot3=40.00;
+    Cost.slot4=18.00;
+    Cost.slot5=21.00;
+    Cost.slot6=20.00;
+    Cost.slot7=13.00;
+    Cost.slot8=16.00;
+    Cost.slot9=29.00;
+    Cost.slot10=31.00;
+    Cost.slot11=34.00;
+    Cost.slot12=35.00;
+
+
     int a;
 
         system("color f0"); //程序颜色为白，字黑
@@ -57,7 +100,7 @@ fclose(userinfo);
     printf("\t||                                                   ||\n");
     printf("\t||         欢迎使用运动场馆预定管理系统!             ||\n");
     printf("\t||                                                   ||\n");
-    printf("\t||                                                   ||\n");
+    printf("\t||         开馆时间：早上10.00-晚上10.00             ||\n");
     printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
@@ -75,11 +118,13 @@ fclose(userinfo);
 
 void start_screen()
 {
+
     int choice;
     system("cls");
     printf("\t=======================================================\n");
     printf("\t||             欢迎使用运动场馆预定管理系统!         ||\n");
-    printf("\t||                                                   ||\n");
+    printf("\t||             开馆时间：早上10.00-晚上10.00         ||\n");
+    show_time();
     printf("\t||                 <1> 登录预定系统                  ||\n");
     printf("\t||                 <2> 注册用户                      ||\n");
     printf("\t||                 <3> 查看场地空闲情况              ||\n");
@@ -87,7 +132,6 @@ void start_screen()
     printf("\t||                 <5> 忘记密码                      ||\n");
     printf("\t||                 <6> 帮助与关于                    ||\n");
     printf("\t||                 <7> 退出                          ||\n");
-    printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
@@ -431,10 +475,7 @@ void venue_avaliablity()
 {
 
 }
-void venue_pricing()
-{
 
-}
 
 void forgot_password()
 {
@@ -504,6 +545,50 @@ user_interface()
 
 }
 
+
+
+void venue_pricing()
+ {
+     int backmenu;
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 租借价格             ||\n");
+    printf("\t||          场地租借价格会随着时段而改动             ||\n");
+    printf("\t||              以下为不同时段的价格：               ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||           早上10.00-早上11.00：￥%.2f            ||\n",Cost.slot1);
+    printf("\t||           早上11.00-早上12.00：￥%.2f            ||\n",Cost.slot2);
+    printf("\t||           中午12.00-下午13.00：￥%.2f            ||\n",Cost.slot3);
+    printf("\t||           下午13.00-下午14.00：￥%.2f            ||\n",Cost.slot4);
+    printf("\t||           下午14.00-下午15.00：￥%.2f            ||\n",Cost.slot5);
+    printf("\t||           下午15.00-下午16.00：￥%.2f            ||\n",Cost.slot6);
+    printf("\t||           下午16.00-下午17.00：￥%.2f            ||\n",Cost.slot7);
+    printf("\t||           下午17.00-傍晚18.00：￥%.2f            ||\n",Cost.slot8);
+    printf("\t||           傍晚18.00-晚上19.00：￥%.2f            ||\n",Cost.slot9);
+    printf("\t||           晚上19.00-晚上20.00  ￥%.2f            ||\n",Cost.slot10);
+    printf("\t||           晚上20.00-晚上21.00：￥%.2f            ||\n",Cost.slot11);
+    printf("\t||           晚上21.00-晚上22.00：￥%.2f            ||\n",Cost.slot12);
+    printf("\t||                 <1> 返回主页面                    ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n");
+    printf("\n:");
+    scanf("%d",&backmenu);
+    start_screen();
+
+
+ }
+
+//时间显示函数（已完善）
+void show_time()
+{
+    char str[100];
+    time_t t;
+    struct tm *lt;
+    t = time(NULL);
+    lt = localtime(&t);
+    strftime(str,100,"%Y-%m-%d  %H:%M:%S ",lt);
+    printf("\t||             当前时间：%s       ||\n",str);
+}
 
 
 
