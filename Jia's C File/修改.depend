@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1616568876 source:d:\desktop\换皮计划\修改\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1615383950 source:d:\desktop\分散文件\icon.rc
+
+1616573636 source:d:\desktop\分散文件\main.c
+	"all.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+
+1616574872 d:\desktop\分散文件\all.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+
+1616574978 d:\desktop\分散文件\file_operate.c
+
+1616575434 d:\desktop\分散文件\function.c
+
+1616572770 d:\desktop\分散文件\interface.c
+
+1616573515 d:\desktop\分散文件\rate_function.c
+
+1616572968 d:\desktop\分散文件\inputdata.c
+
+1616573515 d:\desktop\分散文件\rate_operate.c
+
