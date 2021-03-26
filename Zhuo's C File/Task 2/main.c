@@ -396,6 +396,197 @@ void login()
 
 }
 
+
+void forgot_password()
+{
+        system("cls");
+        int forgotsi;
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                请输入您的学号:                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&forgotsi);
+        for (i=0;forgotsi!=User[i].StudentID;)
+        {
+            i++;
+            if (i>N)
+                break;
+        }
+        if (i>N)
+        {
+                 system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 登录页面             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||         没有找到相关用户，您注册了吗？            ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+
+}
+else {
+            system("cls");
+        char forgotphone[500];
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                请输入您的电话号码:                    ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+scanf("%s",&forgotphone);
+ if (strcmp(forgotphone,User[i].tele)!=0)
+{
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                电话号码验证失败                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+}
+
+
+ if (strcmp(forgotphone,User[i].tele)==0)
+ {
+          system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||            请创建一个六位数密码:                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].Pin);
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                 请再输入一遍:                     ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&User[i].Pin_confirm);
+    if (User[i].Pin!=User[i].Pin_confirm)
+    {
+            system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 忘记密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||          两次密码不相同，请重试！！               ||\n");
+    printf("\t||                 即将返回主页面！                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    Sleep(3000);
+    start_screen();
+
+
+ }else
+ {
+                  system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 找回密码             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                   重置成功                        ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+        Sleep(3000);
+        start_screen();
+
+ }
+
+}
+
+}
+
+}
+
+
 void registration()
 {
     i=N;
@@ -563,6 +754,7 @@ void registration()
     }
 
 
+
 }
 void venue_avaliablity()
 {
@@ -602,7 +794,7 @@ void venue_avaliablity()
 
 }
 
-basketballcourt()
+void basketballcourt()
 {
     system("cls");
      int backmenu;
@@ -630,7 +822,7 @@ basketballcourt()
 
 
 }
-tabletenniscourt()
+void tabletenniscourt()
 {
     system("cls");
     int backmenu;
@@ -656,7 +848,7 @@ tabletenniscourt()
     scanf("%d",&backmenu);
     start_screen();
 }
-badmintoncourt()
+void badmintoncourt()
 {
        system("cls");
        int backmenu;
@@ -684,7 +876,7 @@ badmintoncourt()
 
 }
 
-badmintoncourtr()
+void badmintoncourtr()
 {
      system("cls");
        int book;
@@ -748,10 +940,7 @@ badmintoncourtr()
 
 
 
-void forgot_password()
-{
 
-}
 
 void about()
 {
