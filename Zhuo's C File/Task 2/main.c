@@ -11,58 +11,27 @@ struct User   //定义用户群信息
    int Pin_confirm;
    char tele[5000];
    int balance;
+   char book[500];
+   int b;
 }User[500]={};
 
 struct BadmintonCourtA
 {
-     char slot1[50];
-    char slot2[50];
-    char slot3[50];
-    char slot4[50];
-    char slot5[50];
-    char slot6[50];
-    char slot7[50];
-    char slot8[50];
-    char slot9[50];
-    char slot10[50];
-    char slot11[50];
-    char slot12[50];
+     char slot[50];
 
 
-}Badminton;
+}Badminton[500];
 
 struct TableTennisCourtB
 {
-         char slot1[50];
-    char slot2[50];
-    char slot3[50];
-    char slot4[50];
-    char slot5[50];
-    char slot6[50];
-    char slot7[50];
-    char slot8[50];
-    char slot9[50];
-    char slot10[50];
-    char slot11[50];
-    char slot12[50];
+char slot[50];
 
-}Tabletennis;
+}Tabletennis[50];
 struct BasketballCourtC
 {
-         char slot1[50];
-    char slot2[50];
-    char slot3[50];
-    char slot4[50];
-    char slot5[50];
-    char slot6[50];
-    char slot7[50];
-    char slot8[50];
-    char slot9[50];
-    char slot10[50];
-    char slot11[50];
-    char slot12[50];
+char slot[50];
 
-}Basket;
+}Basket[500];
 
 struct Cost
 {
@@ -79,10 +48,42 @@ struct Cost
     float slot11;
     float slot12;
 }Cost;
-
+struct timeslot
+{
+    char timeslotlk[5000]
+}timesl[50];
 
 int main()  //Main
 {
+    char x1[500]={"早上10.00-早上11.00"};
+    char x2[500]={"早上11.00-中午12.00"};
+    char x3[500]={"中午12.00-下午13.00"};
+    char x4[500]={"下午13.00-下午14.00"};
+    char x5[500]={"下午14.00-下午15.00"};
+    char x6[500]={"下午15.00-下午16.00"};
+    char x7[500]={"下午16.00-下午17.00"};
+    char x8[500]={"下午17.00-傍晚18.00"};
+    char x9[500]={"傍晚18.00-晚上19.00"};
+    char x10[500]={"晚上19.00-晚上20.00"};
+    char x11[500]={"晚上20.00-晚上21.00"};
+    char x12[500]={"晚上21.00-晚上22.00"};
+    strcpy(timesl[1].timeslotlk,x1);
+    strcpy(timesl[2].timeslotlk,x2);
+    strcpy(timesl[3].timeslotlk,x3);
+    strcpy(timesl[4].timeslotlk,x4);
+    strcpy(timesl[5].timeslotlk,x5);
+    strcpy(timesl[6].timeslotlk,x6);
+    strcpy(timesl[7].timeslotlk,x7);
+    strcpy(timesl[8].timeslotlk,x8);
+    strcpy(timesl[9].timeslotlk,x9);
+    strcpy(timesl[10].timeslotlk,x10);
+    strcpy(timesl[11].timeslotlk,x11);
+    strcpy(timesl[12].timeslotlk,x12);
+
+
+
+
+
         Cost.slot1=36.00;
     Cost.slot2=38.00;
     Cost.slot3=40.00;
@@ -133,23 +134,16 @@ fclose(userinfo);
 if ((basket=fopen("basketballstatus.dat","rb"))==NULL)
 {
     char temp[50]={"空闲"};
-    strcpy(Basket.slot1,temp);
-     strcpy(Basket.slot2,temp);
-      strcpy(Basket.slot3,temp);
-       strcpy(Basket.slot4,temp);
-        strcpy(Basket.slot5,temp);
-         strcpy(Basket.slot6,temp);
-          strcpy(Basket.slot7,temp);
-           strcpy(Basket.slot8,temp);
-            strcpy(Basket.slot9,temp);
-             strcpy(Basket.slot10,temp);
-              strcpy(Basket.slot11,temp);
-               strcpy(Basket.slot12,temp);
+    for (i=0;i<13;i++)
+{
+    strcpy(Basket[i].slot,temp);
+}
 
 
 }
 else
-    fread (&Basket,sizeof(struct BasketballCourtC),1,basket);
+    for (i=0;i<13;i++)
+    fread (&Basket[i],sizeof(struct BasketballCourtC),1,basket);
 
 fclose(basket);
 
@@ -157,47 +151,39 @@ fclose(basket);
 if ((bad=fopen("badmintonstatus.dat","rb"))==NULL)
 {
     char temp[50]={"空闲"};
-    strcpy(Badminton.slot1,temp);
-     strcpy(Badminton.slot2,temp);
-      strcpy(Badminton.slot3,temp);
-       strcpy(Badminton.slot4,temp);
-        strcpy(Badminton.slot5,temp);
-         strcpy(Badminton.slot6,temp);
-          strcpy(Badminton.slot7,temp);
-           strcpy(Badminton.slot8,temp);
-            strcpy(Badminton.slot9,temp);
-             strcpy(Badminton.slot10,temp);
-              strcpy(Badminton.slot11,temp);
-               strcpy(Badminton.slot12,temp);
+    for (i=0;i<13;i++)
+    {
+        strcpy(Badminton[i].slot,temp);
+    }
 
 
 }
 else
-    fread (&Badminton,sizeof(struct BadmintonCourtA),1,bad);
+    for (i=0;i<13;i++)
+{
+
+    fread (&Badminton[i],sizeof(struct BadmintonCourtA),1,bad);
+}
     fclose(bad);
 
      FILE * ten;
 if ((ten=fopen("tennisstatus.dat","rb"))==NULL)
 {
     char temp[50]={"空闲"};
-    strcpy(Tabletennis.slot1,temp);
-     strcpy(Tabletennis.slot2,temp);
-      strcpy(Tabletennis.slot3,temp);
-       strcpy(Tabletennis.slot4,temp);
-        strcpy(Tabletennis.slot5,temp);
-         strcpy(Tabletennis.slot6,temp);
-          strcpy(Tabletennis.slot7,temp);
-           strcpy(Tabletennis.slot8,temp);
-            strcpy(Tabletennis.slot9,temp);
-             strcpy(Tabletennis.slot10,temp);
-              strcpy(Tabletennis.slot11,temp);
-               strcpy(Tabletennis.slot12,temp);
+for (i=0;i<13;i++)
+ strcpy(Tabletennis[i].slot,temp);
 
 
 }
 else
+    for (i=0;i<13;i++)
+    {
+
     fread (&Tabletennis,sizeof(struct TableTennisCourtB),1,ten);
-    fclose(bad);
+    }
+    fclose(ten);
+
+
     printf("\t=======================================================\n");
     printf("\t||                                                   ||\n");
     printf("\t||                                                   ||\n");
@@ -623,18 +609,18 @@ basketballcourt()
     printf("\t=======================================================\n");
     printf("\t||         运动场馆预定管理系统 篮球场状态           ||\n");
     printf("\t||                                                   ||\n");
-    printf("\t||           早上10.00-早上11.00：%s               ||\n",Basket.slot1);
-    printf("\t||           早上11.00-早上12.00：%s               ||\n",Basket.slot2);
-    printf("\t||           中午12.00-下午13.00：%s               ||\n",Basket.slot3);
-    printf("\t||           下午13.00-下午14.00：%s               ||\n",Basket.slot4);
-    printf("\t||           下午14.00-下午15.00：%s               ||\n",Basket.slot5);
-    printf("\t||           下午15.00-下午16.00：%s               ||\n",Basket.slot6);
-    printf("\t||           下午16.00-下午17.00：%s               ||\n",Basket.slot7);
-    printf("\t||           下午17.00-傍晚18.00：%s               ||\n",Basket.slot8);
-    printf("\t||           傍晚18.00-晚上19.00：%s               ||\n",Basket.slot9);
-    printf("\t||           晚上19.00-晚上20.00  %s               ||\n",Basket.slot10);
-    printf("\t||           晚上20.00-晚上21.00：%s               ||\n",Basket.slot11);
-    printf("\t||           晚上21.00-晚上22.00：%s               ||\n",Basket.slot12);
+    printf("\t||           %s：%s               ||\n",timesl[1].timeslotlk,Basket[1].slot);
+    printf("\t||           %s：%s               ||\n",timesl[2].timeslotlk,Basket[2].slot);
+    printf("\t||           %s：%s               ||\n",timesl[3].timeslotlk,Basket[3].slot);
+    printf("\t||           %s：%s               ||\n",timesl[4].timeslotlk,Basket[4].slot);
+    printf("\t||           %s：%s               ||\n",timesl[5].timeslotlk,Basket[5].slot);
+    printf("\t||           %s：%s               ||\n",timesl[6].timeslotlk,Basket[6].slot);
+    printf("\t||           %s：%s               ||\n",timesl[7].timeslotlk,Basket[7].slot);
+    printf("\t||           %s：%s               ||\n",timesl[8].timeslotlk,Basket[8].slot);
+    printf("\t||           %s：%s               ||\n",timesl[9].timeslotlk,Basket[9].slot);
+    printf("\t||           %s  %s               ||\n",timesl[10].timeslotlk,Basket[10].slot);
+    printf("\t||           %s：%s               ||\n",timesl[11].timeslotlk,Basket[11].slot);
+    printf("\t||           %s：%s               ||\n",timesl[12].timeslotlk,Basket[12].slot);
     printf("\t||                 <1> 返回主页面                    ||\n");
     printf("\t=======================================================\n");
  printf("\n\n\n");
@@ -651,18 +637,18 @@ tabletenniscourt()
     printf("\t=======================================================\n");
     printf("\t||         运动场馆预定管理系统 乒乓球场状态         ||\n");
     printf("\t||                                                   ||\n");
-    printf("\t||           早上10.00-早上11.00：%s               ||\n",Tabletennis.slot1);
-    printf("\t||           早上11.00-早上12.00：%s               ||\n",Tabletennis.slot2);
-    printf("\t||           中午12.00-下午13.00：%s               ||\n",Tabletennis.slot3);
-    printf("\t||           下午13.00-下午14.00：%s               ||\n",Tabletennis.slot4);
-    printf("\t||           下午14.00-下午15.00：%s               ||\n",Tabletennis.slot5);
-    printf("\t||           下午15.00-下午16.00：%s               ||\n",Tabletennis.slot6);
-    printf("\t||           下午16.00-下午17.00：%s               ||\n",Tabletennis.slot7);
-    printf("\t||           下午17.00-傍晚18.00：%s               ||\n",Tabletennis.slot8);
-    printf("\t||           傍晚18.00-晚上19.00：%s               ||\n",Tabletennis.slot9);
-    printf("\t||           晚上19.00-晚上20.00  %s               ||\n",Tabletennis.slot10);
-    printf("\t||           晚上20.00-晚上21.00：%s               ||\n",Tabletennis.slot11);
-    printf("\t||           晚上21.00-晚上22.00：%s               ||\n",Tabletennis.slot12);
+    printf("\t||           %s：%s               ||\n",timesl[1].timeslotlk,Tabletennis[1].slot);
+    printf("\t||           %s：%s               ||\n",timesl[2].timeslotlk,Tabletennis[2].slot);
+    printf("\t||           %s：%s               ||\n",timesl[3].timeslotlk,Tabletennis[3].slot);
+    printf("\t||           %s：%s               ||\n",timesl[4].timeslotlk,Tabletennis[4].slot);
+    printf("\t||           %s：%s               ||\n",timesl[5].timeslotlk,Tabletennis[5].slot);
+    printf("\t||           %s：%s               ||\n",timesl[6].timeslotlk,Tabletennis[6].slot);
+    printf("\t||           %s：%s               ||\n",timesl[7].timeslotlk,Tabletennis[7].slot);
+    printf("\t||           %s：%s               ||\n",timesl[8].timeslotlk,Tabletennis[8].slot);
+    printf("\t||           %s：%s               ||\n",timesl[9].timeslotlk,Tabletennis[9].slot);
+    printf("\t||           %s  %s               ||\n",timesl[10].timeslotlk,Tabletennis[10].slot);
+    printf("\t||           %s：%s               ||\n",timesl[11].timeslotlk,Tabletennis[11].slot);
+    printf("\t||           %s：%s               ||\n",timesl[12].timeslotlk,Tabletennis[12].slot);
     printf("\t||                 <1> 返回主页面                    ||\n");
     printf("\t=======================================================\n");
     printf("\n\n\n");
@@ -677,24 +663,86 @@ badmintoncourt()
     printf("\t=======================================================\n");
     printf("\t||         运动场馆预定管理系统 羽毛球场状态         ||\n");
     printf("\t||                                                   ||\n");
-    printf("\t||           早上10.00-早上11.00：%s               ||\n",Badminton.slot1);
-    printf("\t||           早上11.00-早上12.00：%s               ||\n",Badminton.slot2);
-    printf("\t||           中午12.00-下午13.00：%s               ||\n",Badminton.slot3);
-    printf("\t||           下午13.00-下午14.00：%s               ||\n",Badminton.slot4);
-    printf("\t||           下午14.00-下午15.00：%s               ||\n",Badminton.slot5);
-    printf("\t||           下午15.00-下午16.00：%s               ||\n",Badminton.slot6);
-    printf("\t||           下午16.00-下午17.00：%s               ||\n",Badminton.slot7);
-    printf("\t||           下午17.00-傍晚18.00：%s               ||\n",Badminton.slot8);
-    printf("\t||           傍晚18.00-晚上19.00：%s               ||\n",Badminton.slot9);
-    printf("\t||           晚上19.00-晚上20.00  %s               ||\n",Badminton.slot10);
-    printf("\t||           晚上20.00-晚上21.00：%s               ||\n",Badminton.slot11);
-    printf("\t||           晚上21.00-晚上22.00：%s               ||\n",Badminton.slot12);
+    printf("\t||           %s：%s               ||\n",timesl[1].timeslotlk,Badminton[1].slot);
+    printf("\t||           %s：%s               ||\n",timesl[2].timeslotlk,Badminton[2].slot);
+    printf("\t||           %s：%s               ||\n",timesl[3].timeslotlk,Badminton[3].slot);
+    printf("\t||           %s：%s               ||\n",timesl[4].timeslotlk,Badminton[4].slot);
+    printf("\t||           %s：%s               ||\n",timesl[5].timeslotlk,Badminton[5].slot);
+    printf("\t||           %s：%s               ||\n",timesl[6].timeslotlk,Badminton[6].slot);
+    printf("\t||           %s：%s               ||\n",timesl[7].timeslotlk,Badminton[7].slot);
+    printf("\t||           %s：%s               ||\n",timesl[8].timeslotlk,Badminton[8].slot);
+    printf("\t||           %s：%s               ||\n",timesl[9].timeslotlk,Badminton[9].slot);
+    printf("\t||           %s  %s               ||\n",timesl[10].timeslotlk,Badminton[10].slot);
+    printf("\t||           %s：%s               ||\n",timesl[11].timeslotlk,Badminton[11].slot);
+    printf("\t||           %s：%s               ||\n",timesl[12].timeslotlk,Badminton[12].slot);
     printf("\t||                 <1> 返回主页面                    ||\n");
     printf("\t=======================================================\n");
     printf("\n\n\n");
     printf("\n:");
     scanf("%d",&backmenu);
     start_screen();
+
+}
+
+badmintoncourtr()
+{
+     system("cls");
+       int book;
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定羽毛球场         ||\n");
+    printf("\t||           只能对目前空闲的场地进行预定            ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||         <1>%s：%s               ||\n",timesl[1].timeslotlk,Badminton[1].slot);
+    printf("\t||         <2>%s：%s               ||\n",timesl[2].timeslotlk,Badminton[2].slot);
+    printf("\t||         <3>%s：%s               ||\n",timesl[3].timeslotlk,Badminton[3].slot);
+    printf("\t||         <4>%s：%s               ||\n",timesl[4].timeslotlk,Badminton[4].slot);
+    printf("\t||         <5>%s：%s               ||\n",timesl[5].timeslotlk,Badminton[5].slot);
+    printf("\t||         <6>%s：%s               ||\n",timesl[6].timeslotlk,Badminton[6].slot);
+    printf("\t||         <7>%s：%s               ||\n",timesl[7].timeslotlk,Badminton[7].slot);
+    printf("\t||         <8>%s：%s               ||\n",timesl[8].timeslotlk,Badminton[8].slot);
+    printf("\t||         <9>%s：%s               ||\n",timesl[9].timeslotlk,Badminton[9].slot);
+    printf("\t||         <10>%s  %s               ||\n",timesl[10].timeslotlk,Badminton[10].slot);
+    printf("\t||         <11>%s：%s               ||\n",timesl[11].timeslotlk,Badminton[11].slot);
+    printf("\t||         <12>%s：%s               ||\n",timesl[12].timeslotlk,Badminton[12].slot);
+    printf("\t=======================================================\n");
+    printf("\n\n\n");
+    printf("\n:");
+    scanf("%d",&book);
+    char temp[50]={"空闲"};
+    if (strcmp(temp,Badminton[book].slot)==0)
+    {
+        char templ[50]={"占有"};
+        strcpy(Badminton[book].slot,templ);
+        User[i].b=1;
+        strcpy(User[i].book,timesl[book].timeslotlk);
+        system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||                 运动场馆预定管理系统              ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                       预定成功！                  ||\n");
+    printf("\t||                 预定场馆：羽毛球场A               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",timesl[book].timeslotlk);
+    printf("\t||                 预定编号：%d                      ||\n",rand());
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                   <1> 返回主页面                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    int c;
+    printf(":");
+    scanf("%d",&c);
+    user_interface();
+
+
+
+
+
+
+    }
+
 
 }
 
@@ -741,7 +789,7 @@ void userlist()
     int j=0;
     for (j=0;j<N;j++)
     {
-    printf("\t     %d     %d  %s       %d         %s               %d        \n",j,User[j].StudentID,User[j].Full_name,User[j].Class,User[j].tele,User[j].Pin);
+    printf("\t     %d     %d  %s       %d         %s               %d        %s \n",j,User[j].StudentID,User[j].Full_name,User[j].Class,User[j].tele,User[j].Pin,User[j].book);
 
     }
 
@@ -758,13 +806,282 @@ void userlist()
 
 void nametitle()
 {
-    printf("\t|| 选项     学号     名字      班级        电话号码                     密码                   || \n");
+    printf("\t|| 选项     学号     名字      班级        电话号码                     密码           预定        || \n");
 
 }
 
 
-user_interface()
+void user_interface()
 {
+                system("cls");
+                int cl;
+    printf("\t=======================================================\n");
+    printf("\t||              运动场馆预定管理系统 你好，%s        ||\n", User[i].Full_name);
+    printf("\t||              今天你想进行什么操作？               ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||<1>预定场地     <2>查看现有预约    <3>更改个人信息 ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t|| <4>退出登录     <5>退出应用                       ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&cl);
+    switch(cl)
+    {
+    case 1 :
+        reserve();
+        break;
+    case 2 :
+        exist();
+        break;
+    case 3 :
+        change();
+        break;
+    case 4 :
+        start_screen();
+        break;
+    case 5 :
+
+        exitapp();
+        break;
+
+
+    }
+}
+void exist()
+{
+    if (User[i].b=1)
+    {
+         system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定查询             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                 预定场馆：羽毛球场A               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",User[i].book);
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                  <1> 返回主页面                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    int a;
+    scanf("%d",&a);
+    user_interface();
+    }
+     if (User[i].b=2)
+    {
+         system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定查询             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                 预定场馆：乒乓球场B               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",User[i].book);
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                  <1> 返回主页面                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    int a;
+    scanf("%d",&a);
+    user_interface();
+    }
+    if (User[i].b=3)
+    {
+         system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定查询             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                 预定场馆：篮球场C               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",User[i].book);
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                  <1> 返回主页面                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    int a;
+    scanf("%d",&a);
+    user_interface();
+    }
+
+
+    }
+
+
+void change()
+{
+
+}
+void reserve()
+    {
+            int choice;
+                 system("cls");
+                  int backmenu;
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 场地预定             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||          请选择需要要预定的场地                   ||\n");
+    printf("\t||          <1> 羽毛球场A                            ||\n");
+    printf("\t||          <2> 乒乓球场B                            ||\n");
+    printf("\t||          <3> 篮球场C                              ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n\n\n\n");
+    printf(":");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1 :
+        badmintoncourtr();
+        break;
+    case 2 :
+        tabletenniscourtr();
+        break;
+    case 3 :
+        basketballcourtr();
+        break;
+    }
+
+    }
+void tabletenniscourtr()
+{
+         system("cls");
+       int book;
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定乒乓球场         ||\n");
+    printf("\t||           只能对目前空闲的场地进行预定            ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||         <1>%s：%s               ||\n",timesl[1].timeslotlk,Tabletennis[1].slot);
+    printf("\t||         <2>%s：%s               ||\n",timesl[2].timeslotlk,Tabletennis[2].slot);
+    printf("\t||         <3>%s：%s               ||\n",timesl[3].timeslotlk,Tabletennis[3].slot);
+    printf("\t||         <4>%s：%s               ||\n",timesl[4].timeslotlk,Tabletennis[4].slot);
+    printf("\t||         <5>%s：%s               ||\n",timesl[5].timeslotlk,Tabletennis[5].slot);
+    printf("\t||         <6>%s：%s               ||\n",timesl[6].timeslotlk,Tabletennis[6].slot);
+    printf("\t||         <7>%s：%s               ||\n",timesl[7].timeslotlk,Tabletennis[7].slot);
+    printf("\t||         <8>%s：%s               ||\n",timesl[8].timeslotlk,Tabletennis[8].slot);
+    printf("\t||         <9>%s：%s               ||\n",timesl[9].timeslotlk,Tabletennis[9].slot);
+    printf("\t||         <10>%s  %s               ||\n",timesl[10].timeslotlk,Tabletennis[10].slot);
+    printf("\t||         <11>%s：%s               ||\n",timesl[11].timeslotlk,Tabletennis[11].slot);
+    printf("\t||         <12>%s：%s               ||\n",timesl[12].timeslotlk,Tabletennis[12].slot);
+    printf("\t=======================================================\n");
+    printf("\n\n\n");
+    printf("\n:");
+    scanf("%d",&book);
+    char temp[50]={"空闲"};
+    if (strcmp(temp,Tabletennis[book].slot)==0)
+    {
+        char templ[50]={"占有"};
+        strcpy(Tabletennis[book].slot,templ);
+        User[i].b=2;
+        strcpy(User[i].book,timesl[book].timeslotlk);
+        system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||                 运动场馆预定管理系统              ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                       预定成功！                  ||\n");
+    printf("\t||                 预定场馆：乒乓球场B               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",timesl[book].timeslotlk);
+    printf("\t||                 预定编号：%d                      ||\n",rand());
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                   <1> 返回主页面                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    int c;
+    printf(":");
+    scanf("%d",&c);
+    user_interface();
+
+}
+}
+void  basketballcourtr()
+{
+             system("cls");
+       int book;
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 预定篮球场           ||\n");
+    printf("\t||           只能对目前空闲的场地进行预定            ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||         <1>%s：%s               ||\n",timesl[1].timeslotlk,Basket[1].slot);
+    printf("\t||         <2>%s：%s               ||\n",timesl[2].timeslotlk,Basket[2].slot);
+    printf("\t||         <3>%s：%s               ||\n",timesl[3].timeslotlk,Basket[3].slot);
+    printf("\t||         <4>%s：%s               ||\n",timesl[4].timeslotlk,Basket[4].slot);
+    printf("\t||         <5>%s：%s               ||\n",timesl[5].timeslotlk,Basket[5].slot);
+    printf("\t||         <6>%s：%s               ||\n",timesl[6].timeslotlk,Basket[6].slot);
+    printf("\t||         <7>%s：%s               ||\n",timesl[7].timeslotlk,Basket[7].slot);
+    printf("\t||         <8>%s：%s               ||\n",timesl[8].timeslotlk,Basket[8].slot);
+    printf("\t||         <9>%s：%s               ||\n",timesl[9].timeslotlk,Basket[9].slot);
+    printf("\t||         <10>%s  %s               ||\n",timesl[10].timeslotlk,Basket[10].slot);
+    printf("\t||         <11>%s：%s               ||\n",timesl[11].timeslotlk,Basket[11].slot);
+    printf("\t||         <12>%s：%s               ||\n",timesl[12].timeslotlk,Basket[12].slot);
+    printf("\t=======================================================\n");
+    printf("\n\n\n");
+    printf("\n:");
+    scanf("%d",&book);
+    char temp[50]={"空闲"};
+    if (strcmp(temp,Basket[book].slot)==0)
+    {
+        char templ[50]={"占有"};
+        strcpy(Basket[book].slot,templ);
+        User[i].b=3;
+        strcpy(User[i].book,timesl[book].timeslotlk);
+        system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||                 运动场馆预定管理系统              ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                       预定成功！                  ||\n");
+    printf("\t||                 预定场馆：篮球场C               ||\n");
+    printf("\t||                 预定时间：%s     ||\n",timesl[book].timeslotlk);
+    printf("\t||                 预定编号：%d                      ||\n",rand());
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                   <1> 返回主页面                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    int c;
+    printf(":");
+    scanf("%d",&c);
+    user_interface();
+
+}
 
 }
 
@@ -837,19 +1154,22 @@ void exitapp()
 
          FILE * badm;
     badm=fopen("badmintonstatus.dat","wb");
-    fwrite (&Badminton,sizeof (struct BadmintonCourtA),1,badm);
+    for (i=0;i<13;i++)
+    fwrite (&Badminton[i],sizeof (struct BadmintonCourtA),1,badm);
     fclose(badm);
 
 
 FILE * ball;
     ball=fopen("basketballstatus.dat","wb");
-    fwrite (&Basket,sizeof (struct BasketballCourtC),1,ball);
+for (i=0;i<13;i++)
+    fwrite (&Basket[i],sizeof (struct BasketballCourtC),1,ball);
     fclose(ball);
 
 
     FILE * tenn;
     tenn=fopen("tennisstatus.dat","wb");
-    fwrite (&Tabletennis,sizeof (struct TableTennisCourtB),1,tenn);
+    for (i=0;i<13;i++)
+    fwrite (&Tabletennis[i],sizeof (struct TableTennisCourtB),1,tenn);
     fclose(tenn);
 
         exit(0);
