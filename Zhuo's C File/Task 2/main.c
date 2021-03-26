@@ -1125,6 +1125,70 @@ void exist()
 
 void change()
 {
+    system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 修改资料             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||               是否要更新电话号码？Y/N             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n:");
+    char yes[50]={"Y"};
+    char g[50];
+    scanf("%s",&g);
+    if (strcmp(g,yes)==0)
+    {
+         system("cls");
+    printf("\t=======================================================\n");
+    printf("\t||           运动场馆预定管理系统 修改资料           ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||               请输入新的电话号码                  ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+    printf("\n\n\n :");
+     scanf("%s",User[i].tele);
+     system("cls");
+     printf("\t=======================================================\n");
+    printf("\t||         运动场馆预定管理系统 修改资料             ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                     修改成功                      ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t||                                                   ||\n");
+    printf("\t=======================================================\n");
+     Sleep(3000);
+     user_interface();
+
+    }
+    else
+        user_interface();
+
+
 
 }
 void reserve()
