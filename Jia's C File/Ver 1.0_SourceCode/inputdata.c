@@ -1,18 +1,18 @@
-void StringInput(char *t,int lens,char *msg)
+void Inputdata(char *t,int lenth,char *msg)
 {
     char str[16];
     do
     {
         printf(msg);
         scanf("%s",str);
-        if(strlen(str)>lens)
+        if(strlen(str)>lenth)
             printf("\nÊäÈëÓÐÎó!\n");
     }
-    while(strlen(str)>lens);
+    while(strlen(str)>lenth);
     strcpy(t,str);
 }
 
-double NumberInput(char *msg)
+double InputMoney(char *msg)
 {
     double t=0;
     do
@@ -24,3 +24,5 @@ double NumberInput(char *msg)
     while(t<0);
     return t;
 }
+
+

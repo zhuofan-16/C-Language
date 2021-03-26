@@ -1,5 +1,5 @@
 //活期利率更改
-void change_normal_rate()
+void Change_normal_rate()
 {
     int x=0;//标记变更
     system("cls");
@@ -15,22 +15,22 @@ void change_normal_rate()
     scanf("%lf",&RATE.normal_rate);
     printf("\n");
     system("pause");
-    save_rate();
+    Save_rate();
     printf("\n");
     printf("操作成功！");
     x=1;
-    change_remind(x);
+    Change_remind(x);
     Sleep(2000);
     return;
 }
 
 //定期利率更改
-void change_regular_rate()
+void Change_regular_rate()
 {
     system("cls");
     int cg=0;
     int x=0;//标记变更
-    show_rate();
+    Show_rate();
     printf("\n\n");
     printf("请输入需要所更改利率对应的定期年限：\n");
     scanf("%d",&cg);
@@ -53,11 +53,32 @@ void change_regular_rate()
     }
     printf("\n");
     system("pause");
-    save_rate();
+    Save_rate();
     printf("\n");
     printf("操作成功！");
     Sleep(2000);
     x=1;
-    change_remind(x);
+    Change_remind(x);
     return;
 }
+
+void GetMonth()//
+{
+    time_t timep;
+    struct tm *p;
+    time (&timep);
+    p=gmtime(&timep);
+    month=1+p->tm_mon;
+}
+
+void Rate_Change_With_Month()//利率随月份变化函数
+{
+        RATE.normal_rate=0.0020+(double)month*0.0001;
+        RATE.rate_oneY=0.0170+(double)month*0.0001;
+        RATE.rate_twoY=0.0221+(double)month*0.0001;
+        RATE.rate_threeY=0.0270+(double)month*0.0001;
+        RATE.rate_fiveY=0.0271+(double)month*0.0001;
+}
+
+
+

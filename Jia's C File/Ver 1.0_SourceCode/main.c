@@ -9,19 +9,20 @@ int main()
 {
     Head list;
     int select;
-    char ch;
-    load_rate();//加载利率
+    char c;
+    GetMonth();//识别当前月份
+    Load_rate();//加载利率
     Loading();//加载界面
     system("color 3f");
     list=(Node *)malloc(sizeof(Node));
     if(!list)
     {
-        printf("\n内存分配失败！");
+        printf("\n给文件分配内存时出错，无法打开系统！");
+        system("pause >nul");
         return 0;
     }
     list->next=NULL;
     Load_userdata(list);
-
     while(1)
     {
         Menu();
@@ -30,18 +31,23 @@ int main()
 
         if(select==12)
         {
-            if(saveflag==1)
+            if(savemark==1)
             {
-                getchar();
-                printf("\n是否保存文件?(y/n):");
-                scanf("%s",&ch);
-                if(ch=='y'||ch=='Y')
+                printf("\n是否保存文件?|y or n|:");
+                scanf("%s",&c);
+                if(c=='y'||c=='Y')
+                {
                     Save_userdata(list);
+                    printf("\n谢谢使用！\n");
+                    system("pause >nul");
+                    exit(0);
+                }
+
             }
             else
             {
                 printf("\n谢谢使用！\n");
-                getchar();
+                system("pause >nul");
                 break;
             }
         }
@@ -51,28 +57,28 @@ int main()
             AddUser(list);
             break;
         case 2:
-            Delete(list);
+            DeleteUser(list);
             break;
         case 3:
-            Find(list);
+            FindUser(list);
             break;
         case 4:
-            Modify(list);
+            ModifyUser(list);
             break;
         case 5:
-            Insert(list);
+            InsertUser(list);
             break;
         case 6:
-            Sort(list);
+            SortNormal(list);
             break;
         case 7:
-            DisplayAll(list);
+            ListAllUser(list);
             break;
         case 8:
-            change_normal_rate();
+            Change_normal_rate();
             break;
         case 9:
-            change_regular_rate();
+            Change_regular_rate();
             break;
         case 10:
             Help();
@@ -80,9 +86,8 @@ int main()
         case 11:
             Save_userdata(list);
             break;
+        default:break;
         }
     }
     return 0;
 }
-
-

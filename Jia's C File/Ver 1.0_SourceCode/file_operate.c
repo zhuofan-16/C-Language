@@ -3,15 +3,15 @@ void Save_userdata(Head list)
     FILE *fp;
     Node  *p;
     int count=0;
-    fp=fopen("userdata","wb");
+    fp=fopen(".\\BankData_NEUCSE2008\\userdata.dat","wb");
     if(fp==NULL)
     {
-        printf("打开文件失败！");
-        getchar();
+        system("cls");
+        printf("打开文件失败！\n\n");
+        system("pause >nul");
         return;
     }
     p=list->next;
-
     while(p)
     {
         if(fwrite(p,sizeof(Node),1,fp)==1)
@@ -23,18 +23,17 @@ void Save_userdata(Head list)
     }
     if(count>0)
     {
-        getchar();
         printf("\n\n数据保存成功！");
-        getchar();
-        saveflag=0;
+        system("pause >nul");
+        savemark=0;
     }
     else
     {
         printf("没有发现用户信息被保存！\n");
-        getchar();
+        system("pause >nul");
     }
     fclose(fp);
-    save_rate();
+    Save_rate();
 }
 
 void Load_userdata(Head list)
@@ -43,11 +42,14 @@ void Load_userdata(Head list)
     Node *p,*r;
     int count=0;
     r=list;
-
-    fp=fopen("userdata","ab+");
+    system("mkdir .\\BankData_NEUCSE2008");
+    system("cls");
+    fp=fopen(".\\BankData_NEUCSE2008\\userdata.dat","ab+");
     if(fp==NULL)
     {
+        system("cls");
         printf("\n不能正常打开文件！\n");
+        system("pause >nul");
         exit(0);
     }
 
@@ -56,7 +58,8 @@ void Load_userdata(Head list)
         p=(Node *)malloc(sizeof(Node));
         if(!p)
         {
-            printf("内存分配失败！");
+            printf("分配内存时出错！");
+            system("pause >nul");
             exit(0);
         }
         if(fread(p,sizeof(Node),1,fp)==1)
@@ -75,18 +78,16 @@ void Load_userdata(Head list)
     return;
 }
 
-void load_rate()
+void Load_rate()
 {
     system("color e0");
     FILE *fp;
-    fp = fopen("rateinfo","rb");
+    system("mkdir .\\BankData_NEUCSE2008");
+    system("cls");
+    fp = fopen(".\\BankData_NEUCSE2008\\rateinfo.dat","rb");
     if(fp==NULL)
     {
-        RATE.normal_rate=0.0030;
-        RATE.rate_oneY=0.0175;
-        RATE.rate_twoY=0.0225;
-        RATE.rate_threeY=0.0275;
-        RATE.rate_fiveY=0.0275;
+        Rate_Change_With_Month();
     }
     else
     {
@@ -95,13 +96,14 @@ void load_rate()
     fclose(fp);
 }
 
-void save_rate()//保存利率信息
+void Save_rate()//保存利率信息
 {
     FILE *fp;
-    fp=fopen("rateinfo","wb");
+    fp=fopen(".\\BankData_NEUCSE2008\\rateinfo.dat","wb");
     if(fp==NULL)
     {
         printf("利率信息文件打开失败！");
+        system("pause >nul");
         return;
     }
     else

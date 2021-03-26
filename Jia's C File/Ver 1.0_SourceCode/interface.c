@@ -15,18 +15,18 @@ void Menu()
     printf("\t\t★-----------------------------------------------------★\n");
 }
 
-void PrintTitle()
+void PrintDataTitle()
 {
     printf("姓名       用户名     账号       活期存款   定期存款   定期年限 \n");
 
 }
 
-void PrintData(Node *p)
+void PrintUserData(Node *p)
 {
     printf("%-10s %-10s %-10lld %-10.2lf %-10.2lf %d年\n",p->data.realname,p->data.username,p->data.account,p->data.normal_balance,p->data.regular_balance,p->data.regular_year);
 }
 
-void show_rate()
+void Show_rate()
 {
     printf("\t\t*************************************************************\n");
     printf("\t\t当前定期利率如下：                                                 \n");
@@ -37,13 +37,14 @@ void show_rate()
     printf("\t\t              <4> 五年(利率为：%.4f)                  \n",RATE.rate_fiveY);
     printf("\t\t                                                                      \n");
     printf("\t\t*************************************************************\n");
+    return;
 }
 
 void Loading()
 {
     int z;
     system("color e0");
-    printf("\t\t=======================================================\n");
+    printf("\t\t =====================================================\n");
     printf("\t\t||                                                   ||\n");
     printf("\t\t||                                                   ||\n");
     printf("\t\t||                                                   ||\n");
@@ -56,7 +57,7 @@ void Loading()
     printf("\t\t||                                                   ||\n");
     printf("\t\t||                                                   ||\n");
     printf("\t\t||                                                   ||\n");
-    printf("\t\t=======================================================\n");
+    printf("\t\t =====================================================\n");
     printf("\n\n\n\n\n\n");
     printf("\t\t正在载入系统，请稍后...\n");
     printf("\t\t");
@@ -69,7 +70,7 @@ void Loading()
     }
 }
 
-void change_remind(int b)
+void Change_remind(int b)
 {
     if(b==1)
     {
@@ -81,7 +82,7 @@ void change_remind(int b)
         printf("\t\t                  当前活期利率:%.4f                      \n",RATE.normal_rate);
         printf("\t\t                                                           \n");
         printf("\t\t                                                           \n");
-        show_rate();
+        Show_rate();
         system("pause >nul");
     }
     return;
@@ -94,11 +95,11 @@ void Help()
     printf("\t\t\t ----------------------------------------------------\n");
     printf("\t\t\t|                  银行存款管理系统                  |\n");
     printf("\t\t\t|                        v2.0                        |\n");
-    printf("\t\t\t|                                                    |\n");
-    printf("\t\t\t|                                                    |\n");
-    printf("\t\t\t|                                                    |\n");
-    printf("\t\t\t|                                                    |\n");
-    printf("\t\t\t|                                                    |\n");
+    printf("\t\t\t|   Tips:                                            |\n");
+    printf("\t\t\t|   <1> 功能界面执行完毕后按任意键返回               |\n");
+    printf("\t\t\t|   <2> 添加用户以用户名为 0 结束添加                |\n");
+    printf("\t\t\t|   <3> 若有信息变动退出前请保存好信息               |\n");
+    printf("\t\t\t|   <4> 定期年限范围为1-5年                          |\n");
     printf("\t\t\t|                                                    |\n");
     printf("\t\t\t|                                                    |\n");
     printf("\t\t\t|                                                    |\n");
@@ -107,3 +108,4 @@ void Help()
     system("pause >nul");
     return;
 }
+
