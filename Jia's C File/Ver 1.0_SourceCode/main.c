@@ -1,4 +1,4 @@
-#include "all.h"
+#include "allhead.h"
 #include "inputdata.c"
 #include "file_operate.c"
 #include "function.c"
