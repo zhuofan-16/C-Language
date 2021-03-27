@@ -44,15 +44,13 @@ int main()
                     system("pause >nul");
                     exit(0);
                 }
-
-            else
-            {
-                printf("\n谢谢使用！\n");
-                Sleep(3000);
-                exit(0);
-                break;
+                else
+                {
+                    printf("\n谢谢使用！\n");
+                    exit(0);
+                }
             }
-        }
+            else exit(0);
         }
         switch(select)
         {
@@ -68,7 +66,8 @@ int main()
         case 4:
             Save_userdata(list);
             break;
-        default:break;
+        default:
+            break;
         }
     }
     return 0;
