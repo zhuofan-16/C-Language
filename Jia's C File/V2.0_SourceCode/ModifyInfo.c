@@ -2,6 +2,7 @@
 void ModifyPswd(Node *p,Head list)
 {
     char pswd[12];
+    char u_name;
     printf("用户名：%s \n",p->data.username);
     printf("  姓名：%s \n",p->data.realname);
     printf("用户原密码为：%s\n",p->data.password);
@@ -12,13 +13,14 @@ void ModifyPswd(Node *p,Head list)
     printf("\n修改成功!");
     system("pause >nul");
     savemark=1;
-    return;
+    UsersOper(p,u_name,pswd,list);
 }
 
 //
 void Add_Normal(Node *p,char u_name,Head list)
 {
     double money;
+    char pswd[12];
     printf("用户名：%s \n",p->data.username);
     printf("  姓名：%s \n",p->data.realname);
     printf("活期存款：%.2lf\n",p->data.normal_balance);
@@ -29,12 +31,13 @@ void Add_Normal(Node *p,char u_name,Head list)
     printf("\n存款成功！");
     savemark=1;
     system("pause >nul");
-    return;
+    UsersOper(p,u_name,pswd,list);
 }
 
 //
 void ModifyYear(Node *p,char u_name,Head list)
 {
+    char pswd[12];
     printf("用户名：%s \n",p->data.username);
     printf("  姓名：%s \n",p->data.realname);
     printf("定期存款：%.2lf\n",p->data.regular_balance);
@@ -59,11 +62,13 @@ void ModifyYear(Node *p,char u_name,Head list)
     printf("修改成功");
     system("pause >nul");
     savemark=1;
+    UsersOper(p,u_name,pswd,list);
 }
 
 //
 void Add_Regular(Node *p,char u_name,Head list)
 {
+    char pswd[12];
     printf("用户名：%s \n",p->data.username);
     printf("  姓名：%s \n",p->data.realname);
     printf("定期存款：%.2lf\n",p->data.regular_balance);
@@ -90,4 +95,5 @@ void Add_Regular(Node *p,char u_name,Head list)
     printf("\n存款成功！");
     system("pause >nul");
     savemark=1;
+    UsersOper(p,u_name,pswd,list);
 }
