@@ -1,0 +1,32 @@
+参考以下代码
+#include <string.h>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+ 
+int main(void)
+{
+  char txt[20][100] = {"0"};
+  char str[100] = {"0"};
+  int n = 0, i = 0;
+ 
+  printf("please input the number of lines:\n"); // 输入你要输入的行数
+  scanf("%d",&n);
+ 
+  printf("please input %d lines text:\n",n);      // 输入你说的若干行文本
+  for (i = 0; i < n; i++) {
+      scanf("%s",txt[i]);
+  }
+  printf("please input the string:\n");                // 输入要匹配的字符串
+  scanf("%s",str);
+ 
+  for (i = 0; i < n; i++) {
+      if (strstr(txt[i],str))
+          printf("%s\n",txt[i]);
+  }
+ 
+  getch();
+  return 0;
+}
+
+
