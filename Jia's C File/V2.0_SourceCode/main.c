@@ -45,13 +45,14 @@ int main()
                     exit(0);
                 }
 
-            }
             else
             {
                 printf("\nллʹ�ã�\n");
-                system("pause >nul");
+                Sleep(3000);
+                exit(0);
                 break;
             }
+        }
         }
         switch(select)
         {
