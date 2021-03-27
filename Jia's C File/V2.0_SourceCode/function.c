@@ -117,6 +117,7 @@ void UserLogin(Head list)
     if(p==NULL)
     {
         printf("\n目前没有用户注册!\n");
+        Sleep(3000);
         return;
     }
     system("cls");
