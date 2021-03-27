@@ -11,8 +11,8 @@ int main()
     Head list;
     int select;
     char c;
+    system("title 银行存款管理系统-NEUCSE2008  --By 柳浩 and 李嘉成");
     GetMonth();//识别当前月份
-    Rate_Change_With_Month();
     Load_rate();//加载利率
     Loading();//加载界面
     system("color 3f");
