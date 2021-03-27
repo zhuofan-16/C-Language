@@ -1,0 +1,140 @@
+# depslib dependency file v1.0
+1616568876 source:d:\desktop\换皮计划\修改\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1615383950 source:d:\desktop\分散文件\icon.rc
+
+1616573636 source:d:\desktop\分散文件\main.c
+	"all.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+
+1616574872 d:\desktop\分散文件\all.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+
+1616574978 d:\desktop\分散文件\file_operate.c
+
+1616575434 d:\desktop\分散文件\function.c
+
+1616572770 d:\desktop\分散文件\interface.c
+
+1616573515 d:\desktop\分散文件\rate_function.c
+
+1616572968 d:\desktop\分散文件\inputdata.c
+
+1616573515 d:\desktop\分散文件\rate_operate.c
+
+1616610299 source:d:\desktop\all\main.c
+	"allhead.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+
+1616610829 d:\desktop\all\all.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+
+1616610829 d:\desktop\all\inputdata.c
+
+1616687645 d:\desktop\all\file_operate.c
+
+1616688812 d:\desktop\all\function.c
+
+1616758534 d:\desktop\all\interface.c
+
+1616610680 d:\desktop\all\rate_operate.c
+
+1616806417 source:d:\desktop\银行存款管理系统\main.c
+	"allhead.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+
+1616610829 d:\desktop\银行存款管理系统\inputdata.c
+
+1616687645 d:\desktop\银行存款管理系统\file_operate.c
+
+1616807534 d:\desktop\银行存款管理系统\function.c
+
+1616758534 d:\desktop\银行存款管理系统\interface.c
+
+1616610680 d:\desktop\银行存款管理系统\rate_operate.c
+
+1616806384 d:\desktop\银行存款管理系统\allhead.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+
+1616842288 source:d:\desktop\修改\main.c
+	"allhead.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+	"ModifyInfo.c"
+
+1616842365 d:\desktop\修改\allhead.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+
+1616836034 d:\desktop\修改\inputdata.c
+
+1616836034 d:\desktop\修改\file_operate.c
+
+1616842603 d:\desktop\修改\function.c
+
+1616842238 d:\desktop\修改\interface.c
+
+1616836034 d:\desktop\修改\rate_operate.c
+
+1616836034 d:\desktop\修改\modifyinfo.c
+
+1616842288 source:d:\desktop\新建文件夹\main.c
+	"allhead.h"
+	"inputdata.c"
+	"file_operate.c"
+	"function.c"
+	"interface.c"
+	"rate_operate.c"
+	"ModifyInfo.c"
+
+1616842365 d:\desktop\新建文件夹\allhead.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+
+1616836034 d:\desktop\新建文件夹\inputdata.c
+
+1616836034 d:\desktop\新建文件夹\file_operate.c
+
+1616846134 d:\desktop\新建文件夹\function.c
+
+1616846159 d:\desktop\新建文件夹\interface.c
+
+1616836034 d:\desktop\新建文件夹\rate_operate.c
+
+1616836034 d:\desktop\新建文件夹\modifyinfo.c
+
