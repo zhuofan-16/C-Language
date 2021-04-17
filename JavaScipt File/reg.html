@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    var phone=/^1[3-9][0-9]{9}$/;
+    phone1=prompt("输入电话号码");
+    phone1=phone1.replace(/^\s*|\s*$/g,"");
+    var email=/\w{3,}(\.\w+)*@[A-z0-9]*(\.[A-z]{2,5}){1,3}/;
+    email1= prompt("输入邮箱");
+    var eresult = email.test(email1);
+    var result = phone.test(phone1);
+
+
+    //result= a.split(/[A-z]/);
+    //result =a.match(/[a-z]/gi);
+   alert("你的电话号码"+result);
+   alert("你的邮箱"+eresult);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
