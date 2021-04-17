@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name,age)
+{
+	this.name=name;
+	this.age=age;
+	
+}
+var student = new Person("嘉成",21);
+var student1 = new Person("酱紫",18);
+var student2 = new Person("年年",8);
+var student3 = new Person("博博",20);
+var student4 = new Person("畅畅",17);
+var me = new Person("寒寒",18);
+var arr =[student,student1,student2,student3,student4,me];
+var newar= new Array();
+var j=0;
+var i=0;
+for (i=0;i<arr.length;i++)
+{
+	if (arr[i].age>=18)
+	{
+		newar[j]=arr[i];
+		j++
+	}
+	
+}
+
+console.log(newar);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

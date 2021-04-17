@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+		function Person()
+		{
+			
+		}
+		Person.prototype.hello = function(){
+			alert('hi'); }
+			function Create(name,age,id)
+			{
+				var student = new Person();
+				student.name=name;
+				student.age=age;
+				student.学号=id;
+				return student;
+				}
+				var student1=Create("嘉",21,2100783);
+				console.log(student1);
+				student1.__proto__.hello();
+				console.log(student1 instanceof Person);
+				 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

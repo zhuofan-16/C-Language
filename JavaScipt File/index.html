@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+		function fun(c,d)
+		{
+			console.log(this);
+		}
+		fun(123,456);
+			function hi(a,b)
+			{
+				var a,b;
+				a=a+b;
+				return a;
+			}
+			var k =5;
+			var e=6;
+			k=hi(k,e);
+			
+			alert(k);
+			
+			var obj2={name:"傻逼",age:24,school:"HI"};
+			console.log("测试"+obj2.name);
+			var test=new Object();
+			test.ni="早";
+			test[21]="k"
+			test.hi=21
+			delete test.ni;
+			alert("你好"+test[21]);
+				var a=9;
+				
+			alert("早,"+a);
+			console.log(test.hasOwnProperty("hi"));
+			a=prompt("请输入你的分数");
+			if (a<60)
+			{
+				alert("你好垃圾");
+				document.write("快去学习");
+			}
+			else 
+			{
+				alert('还行');
+				document.write("<h1>继续努力</h1>");
+				document.write("<p>Hello World</p>");
+			}
+			console.log("HI");
+		</script>
+	</head>
+	<body>
+		<button onclick="document.write('你好啊');">点我吗?</button>
+	</body>
+</html>

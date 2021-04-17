@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<script type="text/javascript">
+		var hi = [1,2,3,4];
+		hi.pop();
+		hi.push(2,1);
+		
+		hi.unshift(222,222);
+		hi.shift();
+		for (var i=0;i<4;i++)
+		{
+		console.log(hi[i]);
+		}
+		
+		
+		
+		
+		function Person()
+		{
+			Person.prototype.hi=
+			function() {
+			alert(this.j);
+		}
+		};
+		var j = new Person();
+			j.j=2;
+			j.hi();
+	</script>
+	</head>
+	<body>
+	</body>
+</html>
