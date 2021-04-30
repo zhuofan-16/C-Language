@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link type="text/css" href="float.css"/>
+  <style type="text/css">
+    html {
+      height: 300%;
+    }
+    body{
+
+      overflow-x: hidden;
+      background-size: 400% 400%;
+
+      background: linear-gradient(lightskyblue,mediumpurple);
+
+    }
+    .flow{
+      padding:10px;
+      position:absolute;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      opacity: 80%;
+
+
+    }
+    .fl li a{
+
+      text-decoration: none;
+      color:black;
+      z-index: 9;
+      list-style: none;
+    }
+    .fl li{
+      display:inline-block;
+      width:80px;
+    }
+    .flow ul {
+      display: flex;
+    //justify-content: center;
+      align-items: center;
+      background-color:white;
+      border-radius: 50px;
+      width:0px;
+      z-index: 9;
+      white-space: nowrap;
+      transition: all 0.5s;
+      overflow: hidden;
+    }
+    #check {
+      z-index:10;
+      width:45px;
+      height: 40px;
+      /* 鼠标移入变小手 */
+      cursor: pointer;
+      /* 不透明度为0 直接变透明 */
+      opacity: 0;
+    }
+
+    .flow span {
+      /* 绝对定位 */
+      position: absolute;
+      left: 25px; /* 现将两条线都放到一起 然后单独设置第二条线的位置 calc方法可以自动计算数值 */
+      top: calc(50% - 10px);
+      width: 30px;
+      height: 4px;
+      border-radius: 15px;
+      background-color: darkgrey;
+      /* 这里在解决一个问题 现在span覆盖着复选框 我们鼠标放到span点不中复选框  写这个属性就能解决这个问题 即便鼠标放到span上点击也能够选中或者未选中复选框*/
+      pointer-events: none;
+      /* 收回来的时候过渡刚好相反 */
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
+    }
+    .flow span:nth-child(3) {
+      top: calc(50% + 6px);}
+
+
+    .fl li a:hover {
+      color: lightskyblue;
+    }
+    /* :checked是当选中的复选框的时候 ~ 是兄弟选择器 查找同一级的ul */
+    #check:checked ~ ul {
+      width: 350px;
+    }
+
+    #check:checked ~ span:nth-child(2) {
+      top: calc(50% - 2px);
+      transform: rotate(-45deg);
+      background-color: lightskyblue;
+
+
+      transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+    }
+    #check:checked ~ span:nth-child(3) {
+      top: calc(50% - 2px);
+      transform: rotate(45deg);
+      background-color: #fb7299;
+      transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+    }
+    #navtext {
+      width: 1980px;
+      height: 100px;
+      border:10px;
+      padding-left: 35%;
+      left: 0;
+      top: 40px;
+      right: 0;
+      flex:1;
+      position: relative;
+    }
+    #name{
+      width: 500px;
+      height: 100px;
+      border:10px;
+      left: 0;
+      top: 53px;
+      right: 0;
+      flex:1;
+      color:white;
+      font-size: 20px;
+      font-weight: 60;
+      margin: 4px;
+      padding-left: 20px;
+      position: fixed;
+    }
+    #navtext a{
+      color:white;
+      font-size: 20px;
+      font-weight: 60;
+      align-content: space-between;
+      margin: 8px;
+      text-decoration: none;
+
+    }
+
+
+    nav{
+      top:0;
+
+      height:80px;
+      align-content: space-between;
+      position: absolute;
+    }
+
+    footer{
+
+    }
+    write{
+      position: absolute;
+      width: 1050px;
+      top:300px;
+      height: 900px;
+      left:225px;
+      border-radius: 30px;
+      background-color: rgba(0,0,0,0.1);
+      backdrop-filter:blur(5px);
+
+    }
+
+  </style>
+  <script type="text/javascript">
+
+    window.onload=function(){
+      var yaxis;
+      yaxis = pageYOffset;
+      var slide = document.getElementById("flow");
+      slide.style.top = yaxis+ 590 + 'px';
+      window.onscroll = function (e) {
+        var yaxis;
+        yaxis = pageYOffset;
+        var slide = document.getElementById("flow");
+        slide.style.top = yaxis+ 590 + 'px';
+
+      }
+    };
+  </script>
+
+</head>
+<nav>
+  <div id="name">ZhuoFan | About Me</div>
+  <ul id="navtext">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="secondary.html">Secondary School</a>
+    <a href="sp.html">SP Experience</a>
+    <a href="prospect.html">Future Career</a>
+    <a href="suggestion.html">Feedback</a>
+  </ul>
+</nav>
+<body>
+<flow id="flow" class="flow">
+  <input id="check" type="checkbox"/>
+  <span></span>
+  <span></span>
+  <ul>
+    <help class="fl">
+      <li><a href="#">Go Up</a></li>
+      <li><a href="javascript:void(0)">Background Music</a><li>
+      <li><a href="index.html">Home</a></li>
+
+
+    </help>
+  </ul>
+</flow>
+<write>
+
+
+</write>
+
+</body>
+<footer>
+  <a style="width:1980px;position:absolute;bottom:-800px;left:550px;color:black;" > Copyright &#169 2021 CHEN ZHUOFAN  All rights reserved</a>
+
+</footer>
+
+</html>
